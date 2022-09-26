@@ -1,0 +1,56 @@
+﻿<Page x:Class="JapCar.View.ChangeCarView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:JapCar.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddCarView" Background="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Добавление автомобиля" FontSize="26" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Grid.Column="0"  Text="Модель автомобиля:" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="2" Grid.Column="0"  Text="Цвет:" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="3" Grid.Column="0"  Text="Комплектация:" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="4" Grid.Column="0"  Text="Цена:" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="5" Grid.Column="0"  Text="Год производства:" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Row="6" Grid.Column="0" Content="Назад" Margin="10" Click="OnBackToKatalogButton"></Button>
+        <Button Grid.Row="6" Grid.Column="1" Content="Сохранить" Margin="10" Click="OnSaveChangesButton"></Button>
+        <TextBox Grid.Row="1" Grid.Column="2" Name="ChangeModelTextBox" Margin="15"></TextBox>
+        <!--<TextBox Grid.Row="2" Grid.Column="2" Name="ChangeColorIdTextBox" Margin="15"></TextBox>
+        <TextBox Grid.Row="3" Grid.Column="2" Name="ChangeComplectationIdTextBox" Margin="15"></TextBox>-->
+        <ComboBox Grid.Row="2" Grid.Column="2" Name="ChangeColorIdComboBox" IsEditable="False" 
+                  Margin="15" ItemsSource="{Binding Colors}" SelectedItem="{Binding SelectedColor}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox Grid.Row="3" Grid.Column="2" Name="ChangeComplectationIdComboBox" Margin="15" ItemsSource="{Binding Complectations}" SelectedItem="{Binding SelectedComplectation}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBox Grid.Row="4" Grid.Column="2" Name="ChangePriceTextBox" Margin="15"></TextBox>
+        <TextBox Grid.Row="5" Grid.Column="2" Name="ChangeCreateDateTextBox" Margin="15"></TextBox>
+    </Grid>
+</Page>
